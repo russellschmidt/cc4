@@ -4,8 +4,14 @@
 </header>
 
 <section>
-	<% if current_user.present? %>
+	<% if current_user %>
 	<p>Hello, <%= current_user.email %>
 	<% end %>
 	<p>The future home of the Climate Cents dashboard</p>
+</section>
+
+<section>
+	<% if current_user %>
+	<p><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></p>
+	<% end %>
 </section>

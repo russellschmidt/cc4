@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Cc4</title>
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Climate Cents</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body class="container">
+  	<% if notice.present? %>
+  		<aside class="alert alert-info">
+  			<%= notice %>
+  		</aside>
+  	<% end %>
+  	<% if alert.present? %>
+  		<aside class="alert alert-danger">
+  		<%= alert %>
+  		</aside>
+  	<% end %>
+
     <%= yield %>
   </body>
 </html>
