@@ -32,10 +32,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # for managing ENV variables
-gem 'figaro', '~> 1.0'
+gem 'figaro', '~> 1.1'
 
 # for handling authentication and login
-gem 'devise'
+gem 'devise', '~> 4.2'
+
+# gem for managing bower 
+gem 'bower-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
