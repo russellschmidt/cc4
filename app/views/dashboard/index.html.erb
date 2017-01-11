@@ -4,5 +4,8 @@
 </header>
 
 <section>
+	<% if current_user.present? %>
+	<p>Hello, <%= current_user.email %>
+	<% end %>
 	<p>The future home of the Climate Cents dashboard</p>
 </section>
