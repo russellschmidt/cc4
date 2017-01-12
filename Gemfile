@@ -40,6 +40,9 @@ gem 'devise', '~> 4.2'
 # gem for managing bower 
 gem 'bower-rails'
 
+# create test data 
+gem 'faker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
