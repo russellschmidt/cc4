@@ -47,6 +47,47 @@ CREATE TABLE ar_internal_metadata (
 
 
 --
+-- Name: donors; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE donors (
+    id integer NOT NULL,
+    first_name character varying NOT NULL,
+    last_name character varying NOT NULL,
+    email character varying NOT NULL,
+    username character varying NOT NULL,
+    address1 character varying,
+    address2 character varying,
+    city character varying,
+    state character varying,
+    postal character varying,
+    phone_home character varying,
+    phone_mobile character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: donors_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE donors_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: donors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE donors_id_seq OWNED BY donors.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -97,6 +138,13 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
+-- Name: donors id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY donors ALTER COLUMN id SET DEFAULT nextval('donors_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -109,6 +157,14 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: donors donors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY donors
+    ADD CONSTRAINT donors_pkey PRIMARY KEY (id);
 
 
 --
@@ -149,6 +205,7 @@ SET search_path TO "$user", public;
 
 INSERT INTO schema_migrations (version) VALUES
 ('20170111043248'),
-('20170112053009');
+('20170112053009'),
+('20170112064657');
 
 
