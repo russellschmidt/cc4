@@ -38,7 +38,7 @@ gem 'figaro', '~> 1.1'
 gem 'devise', '~> 4.2'
 
 # gem for managing bower 
-gem 'bower-rails'
+gem 'bower-rails', '~> 0.11'
 
 # create test data 
 gem 'faker'
@@ -49,6 +49,9 @@ gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # fun testing suite the ol favorite rspec
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do

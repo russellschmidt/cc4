@@ -9,6 +9,9 @@ Gems
 * Postgresql 9.6.1
 * Devise 4.2
 * Figaro 1.1.1
+* Bower-Rails 0.11
+* Rspec 3.5
+* Faker
 
 Node
 * Node 6.9.4
