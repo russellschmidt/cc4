@@ -184,6 +184,27 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: donors_lower_email; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX donors_lower_email ON donors USING btree (lower((email)::text));
+
+
+--
+-- Name: donors_lower_first_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX donors_lower_first_name ON donors USING btree (lower((first_name)::text) varchar_pattern_ops);
+
+
+--
+-- Name: donors_lower_last_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX donors_lower_last_name ON donors USING btree (lower((last_name)::text) varchar_pattern_ops);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -206,6 +227,7 @@ SET search_path TO "$user", public;
 INSERT INTO schema_migrations (version) VALUES
 ('20170111043248'),
 ('20170112053009'),
-('20170112064657');
+('20170112064657'),
+('20170112225019');
 
 

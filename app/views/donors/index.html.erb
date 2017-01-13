@@ -1,3 +1,42 @@
 <header>
-	<h1 class='h2'>Customer Search</h1>
+	<h1 class='h2'>Donor Search</h1>
 </header>
+
+<section class="search-form">
+<%= form_for :donors, method: :get do |f| %>
+	<div class="input-group input-group-lg">
+	<%= label_tag :keywords, nil, class:"sr-only" %>
+	<%= text_field_tag :keywords, nil, placeholder: "First name, last name, email address", class: "form-control input-lg" %>
+	<span class="input-group-btn">
+		<%= submit_tag "Find Donors", class: "btn btn-primary btn-lg" %>
+	</span>
+	</div>
+
+<% end %>
+</section>
+
+<section class="search-results">
+	<header>
+		<h1 class="h3">Results</h1>
+	</header>
+	<% if @donors.present? %>
+	<%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
+	<ol class="list-group">
+		<% @donors.each do |donor| %>
+			<li class="list-group-item clearfix">
+				<h3 class='pull-right'>
+					<small class="text-uppercase">Joined</small> 
+					<%= donor.created_at.to_date %></h3>
+				<h2 class="h3">
+					<%= donor.first_name %> <%= donor.last_name %>
+					<small><%= donor.username %></small>		
+				</h2>
+				<h4><%= donor.email %></h4>
+			</li>
+		<% end %>
+	</ol>
+	<%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
+	<% else %>
+	<p>No results found</p>
+	<% end %>
+</section>

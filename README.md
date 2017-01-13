@@ -5,7 +5,7 @@ This is the 4th iteration of the Climate Cents redesign. Code is not public exce
 Gems
 * Ruby 2.3.1
 * Rails 5.0.1
-* Angular 1.4
+* Angular 1.6
 * Postgresql 9.6.1
 * Devise 4.2
 * Figaro 1.1.1
