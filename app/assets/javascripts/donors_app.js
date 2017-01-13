@@ -7,6 +7,9 @@ app.controller("DonorSearchController", [
 		var page = 0;
 
 		$scope.search = function(searchTerm) {
+			if (searchTerm.length < 3) {
+				return;
+			}
 			$http.get("/donors.json",
 				{ "params": { "keywords": searchTerm, "page": page } }
 			).then(function(response) {
