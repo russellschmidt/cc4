@@ -52,6 +52,14 @@ group :development, :test do
 
   # fun testing suite the ol favorite rspec
   gem 'rspec-rails', '~> 3.5'
+
+  # linkage for connecting capybara and PhantomJS
+  # START_HIGHLIGHT
+  gem 'poltergeist'
+  # END HIGHLIGHT
+
+  # PhantomJS / Poltergeist need a pristine test db before each test runs
+  gem 'database_cleaner'
 end
 
 group :development do

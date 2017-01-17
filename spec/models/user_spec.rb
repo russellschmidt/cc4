@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/violate_check_constraint_matcher'
 
 describe User do
 	describe "email" do
@@ -8,6 +9,7 @@ describe User do
 									password_confirmation: "qwerty123",
 									)
 		}
+
 		it "prevents invalid email addresses with no tld extension" do
 			expect {
 				user.update_attribute(:email, "eatshit@yahoo")
