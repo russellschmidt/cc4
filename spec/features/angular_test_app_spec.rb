@@ -11,13 +11,13 @@ feature "angular test" do
 	end
 
 	# tests to go here
-	scenario "Our Angular test is working" do
+	scenario "Our Angular Test app is working" do
 		visit "/angular_test"
 
-		# Log in
-		fill_in 	"Email", 		with: "bob@example.com"
-		fill_in		"Password",	with: "password123"
-		click_button "Log in"
+		# # Log in
+		# fill_in 	"Email", 		with: "bob@example.com"
+		# fill_in		"Password",	with: "password123"
+		# click_button "Log in"
 
 		# Check that we end up at the right page
 		expect(page).to have_content("Name")
