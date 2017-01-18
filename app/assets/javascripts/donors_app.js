@@ -1,4 +1,9 @@
-var app = angular.module('donors', []);
+var app = angular.module(
+	'donors', 
+	[
+		'ngRoute'
+	]
+	);
 
 app.controller("DonorSearchController", [
 	"$scope", "$http",
