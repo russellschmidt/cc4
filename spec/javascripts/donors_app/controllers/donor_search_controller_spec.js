@@ -60,4 +60,36 @@ describe("DonorSearchController", function() {
 			expect(scope.donors).toEqualData(serverResults);
 		});
 	});
+
+	describe("Error Handling", function(){
+		var scope = null,
+				controller = null,
+				httpBackend = null,
+				
+		beforeEach(module("donors"));
+
+		beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
+			scope = $rootScope.$new();
+			httpBackend = $httpBackend;
+			controller = $controller("DonorSearchController", {
+				$scope: scope
+			});
+		}));
+
+
+		beforeEach(function(){
+			httpBackend.when('GET', '/donors.json?keywords=bob&page=0').
+				respond(500, 'Internal Server Error');
+			spyOn(window, 'alert');
+		});
+
+		it("alerts the user on an error", function(){
+			scope.search("bob");
+			httpBackend.flush();
+			expect(scope.customers).toEqualData([]);
+			expect(window.alert).toHaveBeenCalledWith(
+				"There was a problem: 500");
+		});
+	});
+
 });
