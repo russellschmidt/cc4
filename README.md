@@ -5,7 +5,6 @@ This is the 4th iteration of the Climate Cents redesign. Code is not public exce
 Ruby Gems
 * Ruby 2.3.1
 * Rails 5.0.1
-* Angular 1.6
 * Postgresql 9.6.1
 * Devise 4.2
 * Figaro 1.1.1
@@ -17,8 +16,11 @@ Testing
 * Capybara
 * PhantomJS
 * Poltergeist
+* Teaspoon (includes Jasmine)
 
 Node
 * Node 6.9.4
 * Bower 1.8
 * Bootstrap 3.3
+* Angular 1.6
+* Angular-Mocks

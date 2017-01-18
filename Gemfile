@@ -60,6 +60,9 @@ group :development, :test do
 
   # PhantomJS / Poltergeist need a pristine test db before each test runs
   gem 'database_cleaner'
+
+  # Teaspoon JS testing enabler for Rails; includes Jasmine JS testing framework
+  gem 'teaspoon-jasmine'
 end
 
 group :development do
