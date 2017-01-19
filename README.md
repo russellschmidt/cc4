@@ -9,6 +9,7 @@ Ruby Gems
 * Devise 4.2
 * Figaro 1.1.1
 * Bower-Rails 0.11
+* Angular-Rails-Templates 1.0
 
 Testing
 * Rspec 3.5
@@ -24,3 +25,4 @@ Node
 * Bootstrap 3.3
 * Angular 1.6
 * Angular-Mocks
+* Angular-Route

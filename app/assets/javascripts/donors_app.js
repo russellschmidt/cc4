@@ -1,9 +1,24 @@
 var app = angular.module(
 	'donors', 
 	[
-		'ngRoute'
+		'ngRoute',
+		'templates'
 	]
-	);
+);
+
+app.config([
+	"$routeProvider",
+	function($routeProvider) {
+		// routes go here
+
+		$routeProvider.when('/', {
+			templateUrl: 'donor_search.html',
+			controller: 'DonorSearchController',
+		});
+
+	}
+]);
+
 
 app.controller("DonorSearchController", [
 	"$scope", "$http",

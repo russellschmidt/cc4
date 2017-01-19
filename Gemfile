@@ -40,8 +40,10 @@ gem 'devise', '~> 4.2'
 # gem for managing bower 
 gem 'bower-rails', '~> 0.11'
 
-# create test data 
-gem 'faker'
+# for serving up Angular templates normally in the asset pipeline 
+gem 'angular-rails-templates', '~> 1.0'
+
+gem 'sprockets', '~> 3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -52,6 +54,9 @@ group :development, :test do
 
   # fun testing suite the ol favorite rspec
   gem 'rspec-rails', '~> 3.5'
+
+  # create test data 
+  gem 'faker'
 
   # linkage for connecting capybara and PhantomJS
   # START_HIGHLIGHT

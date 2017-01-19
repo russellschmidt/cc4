@@ -1,0 +1,56 @@
+<header>
+	<h1 class='h2'>Donor Search</h1>
+</header>
+<!-- Angular Markup -->
+<section class="search-form">
+	<form>
+		<label for="search.keywords" class="sr-only">Keywords</label>
+		<input type="text"
+					name="keywords"
+					class="form-control input-lg"
+					placeholder="First Name, Last Name, or Email Addresses"
+					ng-change="search(keywords)"
+					ng-model="keywords">
+	</form>
+</section>
+
+<section class="search-results" ng-if="donors.length > 0">
+	<header>
+		<h1 class="h3">Results</h1>
+	</header>
+	<!-- pagination controls -->
+	<nav>
+		<ul class="pager">
+			<li class="previous">
+				<a href="" ng-click="previousPage()">&larr; Previous</a>
+			</li>
+			<li class="next">
+				<a href="" ng-click="nextPage()">Next &rarr;</a>
+			</li>
+		</ul>
+	</nav>
+	<!-- search results -->
+	<ol class="list-group">
+			<li class="list-group-item clearfix" ng-repeat="donor in donors">
+				<h3 class='pull-right'>
+					<small class="text-uppercase">Joined</small> 
+						{{ donor.created_at | date}} </h3>
+				<h2 class="h3">
+					{{ donor.first_name }} {{ donor.last_name }}
+					<small>{{ donor.username }}</small>		
+				</h2>
+				<h4>{{ donor.email }}</h4>
+			</li>
+	</ol>
+	<!-- pagination controls -->
+	<nav>
+		<ul class="pager">
+			<li class="previous">
+				<a href="" ng-click="previousPage()">&larr; Previous</a>
+			</li>
+			<li class="next">
+				<a href="" ng-click="nextPage()">Next &rarr;</a>
+			</li>
+		</ul>
+	</nav>
+</section>
