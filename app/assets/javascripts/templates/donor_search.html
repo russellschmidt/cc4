@@ -32,9 +32,11 @@
 	<!-- search results -->
 	<ol class="list-group">
 			<li class="list-group-item clearfix" ng-repeat="donor in donors">
-				<h3 class='pull-right'>
-					<small class="text-uppercase">Joined</small> 
+				<div class="pull-right">
+					<h3><small class="text-uppercase">Joined</small> 
 						{{ donor.created_at | date}} </h3>
+					<button class="btn btn-small btn-primary" ng-click="viewDetails(donor)">View Details</button>
+				</div>
 				<h2 class="h3">
 					{{ donor.first_name }} {{ donor.last_name }}
 					<small>{{ donor.username }}</small>		

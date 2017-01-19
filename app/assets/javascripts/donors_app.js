@@ -14,6 +14,9 @@ app.config([
 		$routeProvider.when('/', {
 			templateUrl: 'donor_search.html',
 			controller: 'DonorSearchController',
+		}).when('/:id', {
+			templateUrl: 'donor_detail.html',
+			controller: 'DonorDetailController'
 		});
 
 	}
@@ -21,8 +24,8 @@ app.config([
 
 
 app.controller("DonorSearchController", [
-	"$scope", "$http",
-	function($scope, $http) {
+	"$scope", "$http", "$location",
+	function($scope, $http, $location) {
 		$scope.donors = [];
 		var page = 0;
 
@@ -49,6 +52,10 @@ app.controller("DonorSearchController", [
 		$scope.nextPage = function() {	
 			page = page + 1;
 			$scope.search($scope.keywords);
+		}
+
+		$scope.viewDetails = function() {
+			$location.path("/" + donor.id);
 		}
 	}
 ]);

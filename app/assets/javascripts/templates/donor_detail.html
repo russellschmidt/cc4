@@ -1,0 +1,8 @@
+<article class="donor-details">
+	<h1>Donor {{ donor.id }}</h1>
+	<h2>{{ donor.first_name }} {{ donor.last_name }}</h2>
+	<h3>{{ donor.email }}</h3>
+	<h4>{{ donor.username }}</h4>
+	<h5><small class="text-uppercase">Joined</small>
+		{{ donor.created_at | date }}</h5>
+</article>
