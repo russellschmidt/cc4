@@ -60,3 +60,22 @@ app.controller("DonorSearchController", [
 	}
 ]);
 
+app.controller("DonorDetailController", 
+	[
+	"$scope", "$http", "$routeParams",
+	function($scope, $http, $routeParams) {
+		// Make the Ajax call and set $scope.donor
+		var donorId = $routeParams.id;
+		$scope.donor = {};
+
+		$http.get(
+			"/donors/" + donorId + ".json"
+			).then(function(response) {
+				$scope.donor = response.data;
+			}, function(response) {
+				alert("There was a problem: " + response.status);
+			}
+		);
+	}
+]);
+
