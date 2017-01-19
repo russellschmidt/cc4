@@ -6,19 +6,26 @@ var app = angular.module(
 	]
 );
 
-app.config([
-	"$routeProvider",
-	function($routeProvider) {
+app.config(["$routeProvider", "$locationProvider",
+	function($routeProvider, $locationProvider) {
+		$locationProvider.html5Mode(true);
 		// routes go here
 
 		$routeProvider.when('/', {
-			templateUrl: 'donor_search.html',
-			controller: 'DonorSearchController',
-		}).when('/:id', {
-			templateUrl: 'donor_detail.html',
-			controller: 'DonorDetailController'
+				templateUrl: 'donor_search.html',
+				controller: 'DonorSearchController',
+			}).when('/:id', {
+				templateUrl: 'donor_detail.html',
+				controller: 'DonorDetailController'
+			}).otherwise({
+				redirectTo: function(current, path, search) {
+					if(search.goto) {
+						return '/' + search.goto;
+					}
+					return '/'
+				}
 		});
-
+		
 	}
 ]);
 
@@ -54,15 +61,14 @@ app.controller("DonorSearchController", [
 			$scope.search($scope.keywords);
 		}
 
-		$scope.viewDetails = function() {
+		$scope.viewDetails = function(donor) {
 			$location.path("/" + donor.id);
 		}
 	}
 ]);
 
-app.controller("DonorDetailController", 
-	[
-	"$scope", "$http", "$routeParams",
+app.controller("DonorDetailController", [
+			"$scope", "$http", "$routeParams",
 	function($scope, $http, $routeParams) {
 		// Make the Ajax call and set $scope.donor
 		var donorId = $routeParams.id;
