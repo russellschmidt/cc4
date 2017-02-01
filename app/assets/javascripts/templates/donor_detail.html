@@ -3,75 +3,150 @@
   <form><div class="row">
     <div class="col-md-6">
       
-      <h1>Customer</h1>
-      <div class="row">
-        <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h1>Customer</h1>
+        </div>
+        
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="first-name">First Name></label>
+                <input type="text" class="form-control" name="first-name" value="Bob">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="last-name">Last Name</label>
+                <input type="text" class="form-control" name="last-name" value="Jones">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="username">Username</label>
+                <input type="text" class="form-control" name="username" value="bobert123">
+              </div>
+            </div>
+          </div>
           <div class="form-group">
-            <label class="sr-only" for="first-name">First Name></label>
-            <input type="text" class="form-control" name="first-name" value="Bob">
+            <label class="sr-only" for="email">Email</label>
+            <input type="text" class="form-control" name="email" value="bobbyj@somewhere.net">
           </div>
         </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label class="sr-only" for="last-name">Last Name</label>
-            <input type="text" class="form-control" name="last-name" value="Jones">
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label class="sr-only" for="username">Username</label>
-            <input type="text" class="form-control" name="username" value="bobert123">
-          </div>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label class="sr-only" for="email">Email</label>
-        <input type="text" class="form-control" name="email" value="bobbyj@somewhere.net">
-      </div>
-      
-      <label for="joined">Joined</label> 12/13/2014
-
-      <h2>Shipping Address</h2>
-
-      <div class="form-group">
-        <label class="sr-only" for="street-address-1">Street Address</label>
-        <input type="text" class="form-control" name="street-address-1" value="123 Any Street">
-      </div>
-      
-      <div class="form-group">
-        <label class="sr-only" for="street-address-2">Street Address 2</label>
-        <input type="text" class="form-control" name="street-address-2" value="Unit 101">
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label class="sr-only" for="city">City</label>
-            <input type="text" class="form-control" name="city" value="Los Angeles">
-          </div>
-        </div>
-
-        <div class="col-md-2">
-          <div class="form-group">
-            <label class="sr-only" for="state">State</label>
-            <input type="text" class="form-control" name="state" value="CA">
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label class="sr-only" for="postal">Postal Code/ZIP</label>
-            <input type="text" class="form-control" name="postal" value="90001">
-          </div>
+        <div class="panel-footer">
+          <label for="joined">Joined</label> 12/13/2014
         </div>
       </div>
 
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="h4">Shipping Address</h2>
+        </div>
+
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="sr-only" for="street-address-1">Street Address</label>
+            <input type="text" class="form-control" name="street-address-1" value="123 Any Street">
+          </div>
+          
+          <div class="form-group">
+            <label class="sr-only" for="street-address-2">Street Address 2</label>
+            <input type="text" class="form-control" name="street-address-2" value="Unit 101">
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="city">City</label>
+                <input type="text" class="form-control" name="city" value="Los Angeles">
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="sr-only" for="state">State</label>
+                <input type="text" class="form-control" name="state" value="CA">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="postal">Postal Code/ZIP</label>
+                <input type="text" class="form-control" name="postal" value="90001">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="col-md-6">
-      <h1>Billing Info</h1>
+      <div class="panel panel-default">
+        <div class="panel-heading">  
+          <h1>Billing Info</h1>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-7">
+              <p class="h4">**** **** **** 4321 
+                <span span class="label label-success">VISA</span>
+              </p>
+              <p>
+                <label>Expires:</label>04/19
+              </p>
+            </div>
+
+            <div class="col-md-5 text-right">
+              <button class="btn btn-lg btn-default">
+                View Details...
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="h4">Billing Address <input type="checkbox"> Same as Shipping? </h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="sr-only" for="street-address-1">Street Address</label>
+            <input type="text" class="form-control" name="street-address-1" value="123 Any Street">
+          </div>
+          
+          <div class="form-group">
+            <label class="sr-only" for="street-address-2">Street Address 2</label>
+            <input type="text" class="form-control" name="street-address-2" value="Unit 101">
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="city">City</label>
+                <input type="text" class="form-control" name="city" value="Los Angeles">
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="sr-only" for="state">State</label>
+                <input type="text" class="form-control" name="state" value="CA">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="sr-only" for="postal">Postal Code/ZIP</label>
+                <input type="text" class="form-control" name="postal" value="90001">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </form></div>
 </article>
