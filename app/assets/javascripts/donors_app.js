@@ -2,6 +2,7 @@ var app = angular.module(
 	'donors', 
 	[
 		'ngRoute',
+		'ngResource',
 		'templates'
 	]
 );
@@ -31,7 +32,7 @@ app.config(["$routeProvider", "$locationProvider",
 
 
 app.controller("DonorSearchController", [
-	"$scope", "$http", "$location",
+	"$scope", "$http", "$location", 
 	function($scope, $http, $location) {
 		$scope.donors = [];
 		var page = 0;
@@ -68,20 +69,32 @@ app.controller("DonorSearchController", [
 ]);
 
 app.controller("DonorDetailController", [
-			"$scope", "$http", "$routeParams",
-	function($scope, $http, $routeParams) {
-		// Make the Ajax call and set $scope.donor
+			"$scope", "$http", "$routeParams", "$resource",
+	function($scope, $http, $routeParams, $resource) {
 		var donorId = $routeParams.id;
-		$scope.donor = {};
+		var Donor = $resource('/donors/:donorId.json')
+		$scope.donor = Donor.get({ "donorId": donorId })
 
-		$http.get(
-			"/donors/" + donorId + ".json"
-			).then(function(response) {
-				$scope.donor = response.data;
-			}, function(response) {
-				alert("There was a problem: " + response.status);
-			}
-		);
+		// Make the Ajax call and set $scope.donor
+		// var donorId = $routeParams.id;
+		// $scope.donor = {};
+
+		// $http.get(
+		// 	"/donors/" + donorId + ".json"
+		// 	).then(function(response) {
+		// 		$scope.donor = response.data;
+		// 	}, function(response) {
+		// 		alert("There was a problem: " + response.status);
+		// 	}
+		// );
+	}
+]);
+
+app.controller("DonorCreditCardController", [
+			"$scope", "$resource",
+	function($scope, $resource) {
+		var CreditCardInfo = $resource('/fake_billing.json')
+		$scope.creditCard = CreditCardInfo.get({ "cardholder_id": 1234 })
 	}
 ]);
 

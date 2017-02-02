@@ -23,9 +23,10 @@ class DonorsController < ApplicationController
 	end
 
 	def show 
-		donor = Donor.find(params[:id])
+		donor_detail = Donor.find(params[:id])
+
 		respond_to do |format|
-			format.json {render json: donor}
+			format.json {render json: donor_detail}
 		end
 	end
 
