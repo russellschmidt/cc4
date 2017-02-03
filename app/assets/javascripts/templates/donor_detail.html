@@ -102,7 +102,8 @@
         </header>
 
         <!-- loading animation -->
-        <article ng-controller="DonorCreditCardController">
+        <article ng-controller="DonorCreditCardController"
+            ng-init="setCardholderId(customerId)">
           <div class="row">
             <div ng-if="!creditCard.$resolved">
             <!-- loading animation here -->
@@ -110,7 +111,7 @@
                 <aside class="progress">
                   <div class="progress-bar progress-bar-striped active"
                     style="width: 100%">
-                    <h6 class="h6">Loading...</h6>
+                    <p>Loading...</p>
                   </div>
                 </aside>
               </div>
@@ -122,12 +123,12 @@
                 <article ng-controller="DonorCreditCardController">
                   <div class="row">
                     <div class="col-md-7">
-                      <p class="h4">**** **** **** {{creditCard.lastFour}} 
+                      <p class="h4">&nbsp;****-****-****-{{creditCard.lastFour}} 
                         <span span class="label label-success">
                         {{creditCard.cardType}}</span>
                       </p>
                       <p>
-                        <label>Expires:</label>{{creditCard.expirationMonth}}/{{creditCard.expirationYear}}
+                        <label>&nbsp;Expires:</label>&nbsp;{{creditCard.expirationMonth}}/{{creditCard.expirationYear}}
                       </p>
                     </div>
 
@@ -147,7 +148,7 @@
         </article>
         <!-- end credit card / animation section -->
       </article>
-      
+
       <article class="panel panel-default">
         <header class="panel-heading">
           <h3 class="h4">Billing Address <input type="checkbox"> Same as Shipping? </h3>

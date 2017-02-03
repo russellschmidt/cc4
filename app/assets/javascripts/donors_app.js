@@ -69,11 +69,11 @@ app.controller("DonorSearchController", [
 ]);
 
 app.controller("DonorDetailController", [
-			"$scope", "$http", "$routeParams", "$resource",
-	function($scope, $http, $routeParams, $resource) {
-		var donorId = $routeParams.id;
+			"$scope", "$routeParams", "$resource",
+	function($scope, $routeParams, $resource) {
+		$scope.donorId = $routeParams.id;
 		var Donor = $resource('/donors/:donorId.json')
-		$scope.donor = Donor.get({ "donorId": donorId })
+		$scope.donor = Donor.get({ "donorId": $scope.donorId })
 
 		// Make the Ajax call and set $scope.donor
 		// var donorId = $routeParams.id;
@@ -94,7 +94,11 @@ app.controller("DonorCreditCardController", [
 			"$scope", "$resource",
 	function($scope, $resource) {
 		var CreditCardInfo = $resource('/fake_billing.json')
-		$scope.creditCard = CreditCardInfo.get({ "cardholder_id": 1234 })
+		$scope.setCardholderId = function(cardholderId) {
+			$scope.creditCard = CreditCardInfo.get(
+				{ "cardholder_id": cardholderId })	
+		}
+		
 	}
 ]);
 
