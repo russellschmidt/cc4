@@ -100,30 +100,54 @@
         <header class="panel-heading">  
           <h1 class="h3">Billing Info</h1>
         </header>
-        <section class="panel-body">
-          <article ng-controller="DonorCreditCardController">
-            <div class="row">
-              <div class="col-md-7">
-                <p class="h4">**** **** **** {{creditCard.lastFour}} 
-                  <span span class="label label-success">
-                  {{creditCard.cardType}}</span>
-                </p>
-                <p>
-                  <label>Expires:</label>{{creditCard.expirationMonth}}/{{creditCard.expirationYear}}
-                </p>
-              </div>
 
-              <div class="col-md-5 text-right">
-                <a href="{{creditCard.detailsLink}}"
-                  class="btn btn-lg btn-default">
-                  View Details
-                </a>
+        <!-- loading animation -->
+        <article ng-controller="DonorCreditCardController">
+          <div class="row">
+            <div ng-if="!creditCard.$resolved">
+            <!-- loading animation here -->
+              <div class="col-md-10 col-md-offset-1">
+                <aside class="progress">
+                  <div class="progress-bar progress-bar-striped active"
+                    style="width: 100%">
+                    <h6 class="h6">Loading...</h6>
+                  </div>
+                </aside>
               </div>
-
             </div>
-          </article>
-        </section>
+            
+            <div ng-if="creditCard.$resolved">
+            <!-- Credit Card info here -->
+              <section class="panel-body">
+                <article ng-controller="DonorCreditCardController">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p class="h4">**** **** **** {{creditCard.lastFour}} 
+                        <span span class="label label-success">
+                        {{creditCard.cardType}}</span>
+                      </p>
+                      <p>
+                        <label>Expires:</label>{{creditCard.expirationMonth}}/{{creditCard.expirationYear}}
+                      </p>
+                    </div>
+
+                    <div class="col-md-5 text-right">
+                      <a href="{{creditCard.detailsLink}}"
+                        class="btn btn-lg btn-default">
+                        View Details
+                      </a>
+                    </div>
+
+                  </div>
+                </article>
+              </section>
+            </div>
+
+          </div>
+        </article>
+        <!-- end credit card / animation section -->
       </article>
+      
       <article class="panel panel-default">
         <header class="panel-heading">
           <h3 class="h4">Billing Address <input type="checkbox"> Same as Shipping? </h3>
